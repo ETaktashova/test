@@ -79,7 +79,5 @@ class TestWebsite:
         assert len(heights) == 1 and len(widths) == 1
 
 
-test = TestWebsite()
-test.setup_method()
-test.test_sbis_to_tensor()
-test.test_tensor_page()
+if __name__ == '__main__':
+    pytest.main()
