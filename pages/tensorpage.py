@@ -2,21 +2,14 @@ from selenium.webdriver.common.by import By
 from .basepage import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
-
+tensor_button_locator = (By.CSS_SELECTOR, 'a.sbisru-Contacts__logo-tensor')
+block_sila_locator = (By.XPATH, '//*[@id="container"]/div[1]/div/div[5]/div/div/div[1]/div/p[1]')
+popodrobnee_locator = (By.XPATH, '//*[@id="container"]/div[1]/div/div[5]/div/div/div[1]/div/p[4]/a')
 class TensorPage(BasePage):
-    def check_sila_v_lyudyah(self):
-        sila_block_locator = (By.XPATH, "//h2[text()='Сила в людях']")
-        self.assert_element_displayed(sila_block_locator)
+    def __init__(self, driver):
+        super().__init__(driver)
 
-    def go_to_about(self):
-        podrobnosti_link_locator = (By.LINK_TEXT, "Подробнее")
-        self.click_element(podrobnosti_link_locator)
-        about_url_locator = (EC.url_to_be, "https://tensor.ru/about")
-        self.wait_for_element(about_url_locator)
+    def open(self):
+        self.driver.get('https://tensor.ru/')
 
-    def check_work_photos(self):
-        photos_locator = (By.XPATH, "//div[@class='work-photos']//img")
-        photos = self.driver.find_elements(*photos_locator)
-        first_photo_size = photos[0].size
-        for photo in photos[1:]:
-            assert photo.size == first_photo_size
+
