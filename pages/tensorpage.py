@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from pages.basepage import BasePage
+from .basepage import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
 
