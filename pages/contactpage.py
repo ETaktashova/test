@@ -9,7 +9,7 @@ class ContactsPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def open(self):
-        self.driver.get('https://sbis.ru/')
+    def open(self, url= 'https://sbis.ru/'):
+        self.driver.get(url)
 
 
