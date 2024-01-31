@@ -1,18 +1,24 @@
 import pytest
-from pages.tensorpage import TensorPage, tensor_button_locator, block_sila_locator, popodrobnee_locator, section_rabotaem_locator
+from pages.tensorpage import (
+    TensorPage,
+    tensor_button_locator,
+    block_sila_locator, 
+    popodrobnee_locator, 
+    section_rabotaem_locator
+)
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.contactpage import ContactsPage, contacts_buttton_locator
-
 driver = webdriver.Chrome()
+
 # Проверяю переход на tensor.ru через контакты и  баннер "тензор"
 def test_tensor_banner():
     contacts = ContactsPage(driver)
     contacts.open()
-    contacts.find(contacts_buttton_locator).click()
-    contacts.find(tensor_button_locator).click()
+    WebDriverWait(contacts.driver, 10).until(EC.element_to_be_clickable(contacts_buttton_locator)).click()
+    WebDriverWait(contacts.driver, 10).until(EC.element_to_be_clickable(tensor_button_locator)).click()
     WebDriverWait(contacts.driver, 10).until(EC.number_of_windows_to_be(2))
     # Получаем список идентификаторов вкладок
     window_handles = contacts.driver.window_handles
@@ -28,7 +34,6 @@ def test_strength_in_people():
     sila.open()
     sila.wait_for_element(block_sila_locator)
     assert sila.find(block_sila_locator), "Блок 'Сила в людях' не найден на странице"
-
 
 def test_url_tensor_about():
     popodrobnee_page = TensorPage(driver)
