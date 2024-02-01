@@ -3,7 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.contactpage import *
+from pages.contactpage import ContactsPage
+from locators import (
+    contacts_buttton_locator,
+    my_region_locator, 
+    partners_locator_my_reg, kamchatka_locator, 
+    locator_kamchat_reg_inregions_list
+)
 
 driver = webdriver.Chrome()
 # проверка установления моего региона и списка партнеров по нему

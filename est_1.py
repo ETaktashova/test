@@ -1,16 +1,17 @@
 import pytest
-from pages.tensorpage import (
-    TensorPage,
+from pages.tensorpage import TensorPage
+from locators import(
     tensor_button_locator,
     block_sila_locator, 
     popodrobnee_locator, 
-    section_rabotaem_locator
+    section_rabotaem_locator,
+    contacts_buttton_locator
 )
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.contactpage import ContactsPage, contacts_buttton_locator
+from pages.contactpage import ContactsPage
 driver = webdriver.Chrome()
 
 # Проверяю переход на tensor.ru через контакты и  баннер "тензор"
