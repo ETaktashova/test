@@ -29,6 +29,7 @@ report.xml
 *.bak
 build
 build/
+.vscode
 
 data
 data/
