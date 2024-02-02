@@ -23,7 +23,7 @@ section_rabotaem_locator = (
 open_download_page_locator = (
     By.XPATH, '//*[@id="container"]/div[2]/div[1]/div[3]/div[10]/ul/li[6]/a'
 )
-plugin_locator = (
-    By.XPATH, "//div[contains(@class, 'controls-TabButton__caption') and text()='СБИС Плагин']")
+plugin_locator = (By.XPATH, '//div[@data-id="plugin"]')
+
 download_link_locator = (
     By.XPATH, '//a[@class="sbis_ru-DownloadNew-loadLink__link js-link"]')
